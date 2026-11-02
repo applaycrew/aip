@@ -566,7 +566,7 @@
 			"options": [
 				{ "id": "A", "text": "대화 흐름을 오케스트레이션하기 위해 AWS Step Functions Express 워크플로를 사용합니다. 명확화 로직을 실행하기 위해 AWS Lambda 함수를 호출합니다. 대화 기록을 Amazon RDS에 저장하고 세션 ID를 기본 키로 사용합니다." },
 				{ "id": "B", "text": "명확화 워크플로를 오케스트레이션하기 위해 AWS Step Functions Standard 워크플로를 사용합니다. 워크플로를 관리하기 위해 콜백 대기(Wait for a Callback) 패턴을 포함합니다. 대화 기록을 Amazon DynamoDB에 저장합니다. 온디맨드 용량을 구매하고 서버 측 암호화를 구성합니다." },
-				{ "id": "C", "text": "사용자 요청을 라우팅하여 대화 컨텍스트를 업데이트하고 검색하는 AWS Lambda 함수로 전달하는 Amazon API Gateway REST API를 사용하여 애플리케이션을 배포합니다. 대화 기록을 Amazon S3에 저장하고 서버 측 암호화를 구성합니다. 각 상호 작용을 별도의 JSON 파일로 저장합니다." },
+				{ "id": "C", "text": "대화 컨텍스트를 업데이트하고 검색하는 AWS Lambda 함수로 사용자의 요청을 라우팅하는 Amazon API Gateway REST API를 사용하여 애플리케이션을 배포합니다. 대화 기록을 Amazon S3에 저장하고 서버 측 암호화를 구성합니다. 각 상호 작용을 별도의 JSON 파일로 저장합니다." },
 				{ "id": "D", "text": "Amazon Bedrock 추론 API를 호출하기 위해 AWS Lambda 함수를 사용합니다. 명확화 단계를 오케스트레이션하기 위해 Amazon SQS 대기열을 사용합니다. 대화 기록을 Amazon ElastiCache(Redis OSS) 클러스터에 저장합니다. 미사용 데이터 암호화(encryption at rest)를 구성합니다." }
 			],
 			"answer": "B",
