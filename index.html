@@ -549,17 +549,17 @@
 			"explanation": "<b>[키워드]</b> Amazon Transcribe Streaming/Amazon Bedrock ResponseStream/DynamoDB<br><br><b>[정답 B]</b> 500ms 미만의 실시간 지연 시간 요구 사항을 충족하려면 100ms의 작은 오디오 청크 단위로 Amazon Transcribe 스트리밍 API를 적용하여 지연 시간을 최적화하는 것이 적합합니다. 또한 실시간 GenAI 응답을 제공하기 위해 Bedrock의 InvokeModelWithResponseStream 작업을 호출하여 스트리밍 방식으로 텍스트를 즉시 반환해야 합니다. 실시간 통화 중 발생하는 감독관의 평가 피드백은 낮은 지연 시간과 높은 처리량을 제공하는 Amazon DynamoDB에 저장하는 것이 효율적입니다.<br><br><b>[오답 분석]</b> A: Amazon Bedrock의 배치 처리(Batch processing)는 대량 데이터를 비동기적으로 처리하므로 실시간 요구 사항을 충족할 수 없습니다.<br>C: Amazon Transcribe 배치 처리는 실시간이 아닌 통화 종료 후(post-call) 분석에 사용되므로 부적합합니다.<br>D: Amazon SQS로 작업을 큐(Queue)에 넣으면 추가적인 지연 시간이 발생하여 500ms 미만의 실시간 응답 요구 사항을 충족할 수 없습니다."
 		},
 		{
-            id: 11,
-            question: "한 회사가 추천 시스템을 보유하고 있습니다. 이 시스템은 인스턴스로 구성됩니다. 애플리케이션은 Amazon EC2에서 실행됩니다. 애플리케이션은 Amazon Bedrock 기반 모델(FM)에 API 호출을 하여 고객 행동을 분석하고 개인화된 제품 추천을 생성합니다. 시스템에 간헐적인 문제가 발생하고 있습니다. 일부 추천 사항이 고객 선호도와 일치하지 않습니다. 해당 기업은 운영 지표를 모니터링하고 설정된 기준선 대비 운영 성과 저하 패턴을 감지할 수 있는 관찰 가능성 솔루션이 필요합니다. 또한, 시설 관리(FM) 담당자의 행동이 예상 패턴에서 벗어날 경우 10분 이내에 상관관계 데이터가 포함된 알림을 생성해야 합니다. 어떤 솔루션이 이러한 요구 사항을 충족할까요?",
-            options: [
-                { id: "A", text: "애플리케이션 인프라에 맞게 Amazon CloudWatch Container Insights를 구성합니다. 지연 시간 임계값에 대한 CloudWatch 알람을 설정합니다. CloudWatch 내장 메트릭 형식을 사용하여 토큰 수에 대한 사용자 지정 메트릭을 추가합니다. 데이터를 시각화하기 위한 CloudWatch 대시보드를 생성합니다." },
-                { id: "B", text: "AWS X-Ray를 구현하여 애플리케이션 구성 요소를 통한 요청을 추적합니다. 오류 패턴 감지를 위해 CloudWatch Logs Insights를 활성화합니다. Amazon Bedrock에 대한 모든 API 호출을 모니터링하도록 AWS CloudTrail을 설정합니다. Amazon QuickSight 에서 사용자 지정 대시보드를 생성합니다." },
-                { id: "C", text: "애플리케이션 리소스에 대해 Amazon CloudWatch Application Insights를 활성화합니다. 요청 유형 및 사용자 세그먼트에 대한 차원을 포함하는 CloudWatch 내장 메트릭 형식을 사용하여 추천 품질, 토큰 사용량 및 응답 지연 시간에 대한 사용자 지정 메트릭을 생성합니다. 모델 메트릭에 대해 CloudWatch 이상 탐지를 구성합니다. CloudWatch Logs Insights를 사용하여 로그 패턴 분석을 설정합니다." },
-                { id: "D", text: "Amazon OpenSearch Service와 Observability 플러그인을 사용합니다. Amazon Kinesis를 사용하여 모델 메트릭과 로그를 수집합니다. 모델 동작 패턴을 분석하기 위해 사용자 지정 PPL(Piped Processing Language) 쿼리를 생성합니다. 실시간으로 이상 징후를 시각화할 수 있는 운영 대시보드를 구축합니다." }
-            ],
-            answer: "C",
-            explanation: "[키워드] 10분 / 관찰 가능성 / 추천\n\n[정답 C] Amazon CloudWatch Application Insights + CloudWatch -> 애플리케이션 인식 관찰 가능성, 메트릭 기준선 설정, 이상 탐지 및 상관 관계 알림 기능을 완전 관리형 AWS 서비스를 사용하여 최소한의 운영 부담으로 충족합니다.\n\n[오답] A: 기준선 이상 탐지 없이 인프라 수준의 지표에 초점을 맞춥니다. / B: 추적 및 감사 기능을 강조하지만 자동화된 성능 편차 분석을 제공하지 않습니다. / D: 유연성을 제공하지만, 네이티브 CloudWatch 기반 솔루션 보다 개발 및 운영 부담이 큽니다."
-        },
+			"id": 12,
+			"question": "한 회사에 추천 시스템이 있습니다. 이 시스템의 애플리케이션은 Amazon EC2 인스턴스에서 실행됩니다. 애플리케이션은 고객 행동을 분석하고 개인화된 제품 추천을 생성하기 위해 Amazon Bedrock 파운데이션 모델(FM)에 API 호출을 수행합니다. 이 시스템은 간헐적인 문제를 겪고 있습니다. 일부 추천이 고객 선호도와 일치하지 않습니다. 회사는 운영 지표를 모니터링하고 설정된 기준(baseline)과 비교하여 운영 성능 저하 패턴을 감지할 수 있는 관측성(observability) 솔루션이 필요합니다. 또한 이 솔루션은 FM 동작이 예상 패턴에서 벗어날 때 10분 이내에 상관관계 데이터와 함께 알림을 생성해야 합니다. 이러한 요구 사항을 충족하는 솔루션은 무엇입니까?",
+			"options": [
+				{ "id": "A", "text": "애플리케이션 인프라에 대해 Amazon CloudWatch Container Insights를 구성합니다. 지연 시간 임계값에 대한 CloudWatch 경보를 설정합니다. CloudWatch 내장 지표 형식을 사용하여 토큰 수에 대한 사용자 지정 지표를 추가합니다. 데이터를 시각화하기 위해 CloudWatch 대시보드를 생성합니다." },
+				{ "id": "B", "text": "애플리케이션 구성 요소를 통한 요청을 추적하기 위해 AWS X-Ray를 구현합니다. 오류 패턴 감지를 위해 CloudWatch Logs Insights를 활성화합니다. Amazon Bedrock에 대한 모든 API 호출을 모니터링하기 위해 AWS CloudTrail을 설정합니다. Amazon QuickSight에서 사용자 지정 대시보드를 생성합니다." },
+				{ "id": "C", "text": "애플리케이션 리소스에 대해 Amazon CloudWatch Application Insights를 활성화합니다. 요청 유형 및 사용자 세그먼트에 대한 차원과 함께 CloudWatch 내장 지표 형식을 사용하여 추천 품질, 토큰 사용량 및 응답 지연 시간에 대한 사용자 지정 지표를 생성합니다. 모델 지표에 대해 CloudWatch 이상 탐지(Anomaly Detection)를 구성합니다. CloudWatch Logs Insights를 사용하여 로그 패턴 분석을 설정합니다." },
+				{ "id": "D", "text": "Observability 플러그인과 함께 Amazon OpenSearch Service를 사용합니다. Amazon Kinesis를 사용하여 모델 지표 및 로그를 수집합니다. 모델 동작 패턴을 분석하기 위해 사용자 지정 PPL(Piped Processing Language) 쿼리를 생성합니다. 이상 징후를 실시간으로 시각화하기 위해 운영 대시보드를 구축합니다." }
+			],
+			"answer": "C",
+			"explanation": "<b>[키워드]</b> CloudWatch Application Insights/이상 탐지(Anomaly Detection)/내장 지표 형식(Embedded Metric Format)<br><br><b>[정답 C]</b> Amazon CloudWatch Application Insights는 애플리케이션 리소스(EC2 등)를 모니터링하고 오류 및 예외에 대한 상관관계(correlation) 데이터를 자동으로 제공하는 데 적합합니다. 설정된 기준(baseline) 대비 성능 저하나 동작 이상을 감지하려면 기계 학습을 통해 동적으로 예상 임계값을 계산하는 CloudWatch 이상 탐지(Anomaly Detection)를 사용자 지정 지표에 적용하는 것이 문제의 요구 사항(10분 이내 알림, 기준 이탈 감지)을 가장 완벽하게 충족하는 네이티브 솔루션입니다.<br><br><b>[오답 분석]</b> A: 애플리케이션이 EC2에서 실행 중이므로 컨테이너용인 Container Insights는 적합하지 않으며, 단순 고정 임계값 경보(alarm)는 동적 기준선 비교에 부적합합니다.<br>B: X-Ray와 CloudTrail은 API 호출 및 요청 추적에 유용하지만, 운영 성능 저하 패턴을 기준선과 비교하고 지표 기반 이상 탐지를 자동화하는 데는 적합하지 않습니다.<br>D: Amazon OpenSearch Service를 관측성에 사용할 수 있으나 별도의 인프라 구성 및 유지 관리 오버헤드가 발생하며, CloudWatch Application Insights 및 이상 탐지를 활용하는 것보다 비효율적입니다."
+		},
         {
             id: 12,
             question: "한 회사가 아마존 베드락 파운데이션 모델(FM)을 사용하는 생성형 AI(GenAI) 기반 고객 지원 애플리케이션을 개발하고 있습니다. 이 애플리케이션은 동일 사용자와의 여러 상호 작용에서 대화 맥락을 유지해야 합니다. 또한 모호한 사용자 질문을 처리 하기 위해 명확화 워크플로를 실행해야 합니다. 회사는 개인화에 활용하기 위해 각 사용자 대화 기록을 암호화하여 저장해야 합니다. 이 애플리케이션은 수천 명의 동시 사용자를 처리하면서 각 사용자에게 신속하게 응답할 수 있어야 합니다. 어떤 솔루션이 이러한 요구 사항을 충족할까요?",
