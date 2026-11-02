@@ -549,7 +549,7 @@
 			"explanation": "<b>[키워드]</b> Amazon Transcribe Streaming/Amazon Bedrock ResponseStream/DynamoDB<br><br><b>[정답 B]</b> 500ms 미만의 실시간 지연 시간 요구 사항을 충족하려면 100ms의 작은 오디오 청크 단위로 Amazon Transcribe 스트리밍 API를 적용하여 지연 시간을 최적화하는 것이 적합합니다. 또한 실시간 GenAI 응답을 제공하기 위해 Bedrock의 InvokeModelWithResponseStream 작업을 호출하여 스트리밍 방식으로 텍스트를 즉시 반환해야 합니다. 실시간 통화 중 발생하는 감독관의 평가 피드백은 낮은 지연 시간과 높은 처리량을 제공하는 Amazon DynamoDB에 저장하는 것이 효율적입니다.<br><br><b>[오답 분석]</b> A: Amazon Bedrock의 배치 처리(Batch processing)는 대량 데이터를 비동기적으로 처리하므로 실시간 요구 사항을 충족할 수 없습니다.<br>C: Amazon Transcribe 배치 처리는 실시간이 아닌 통화 종료 후(post-call) 분석에 사용되므로 부적합합니다.<br>D: Amazon SQS로 작업을 큐(Queue)에 넣으면 추가적인 지연 시간이 발생하여 500ms 미만의 실시간 응답 요구 사항을 충족할 수 없습니다."
 		},
 		{
-			"id": 12,
+			"id": 11,
 			"question": "한 회사에 추천 시스템이 있습니다. 이 시스템의 애플리케이션은 Amazon EC2 인스턴스에서 실행됩니다. 애플리케이션은 고객 행동을 분석하고 개인화된 제품 추천을 생성하기 위해 Amazon Bedrock 파운데이션 모델(FM)에 API 호출을 수행합니다. 이 시스템은 간헐적인 문제를 겪고 있습니다. 일부 추천이 고객 선호도와 일치하지 않습니다. 회사는 운영 지표를 모니터링하고 설정된 기준(baseline)과 비교하여 운영 성능 저하 패턴을 감지할 수 있는 관측성(observability) 솔루션이 필요합니다. 또한 이 솔루션은 FM 동작이 예상 패턴에서 벗어날 때 10분 이내에 상관관계 데이터와 함께 알림을 생성해야 합니다. 이러한 요구 사항을 충족하는 솔루션은 무엇입니까?",
 			"options": [
 				{ "id": "A", "text": "애플리케이션 인프라에 대해 Amazon CloudWatch Container Insights를 구성합니다. 지연 시간 임계값에 대한 CloudWatch 경보를 설정합니다. CloudWatch 내장 지표 형식을 사용하여 토큰 수에 대한 사용자 지정 지표를 추가합니다. 데이터를 시각화하기 위해 CloudWatch 대시보드를 생성합니다." },
