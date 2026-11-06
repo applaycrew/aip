@@ -828,7 +828,7 @@
 		},
         {
 			"id": 34,
-			"question": "한 금융 서비스 회사가 Amazon Bedrock을 사용하여 재무 문서를 처리하는 AI 애플리케이션을 사용하고 있습니다. 영업 시간 동안 애플리케이션은 시간당 약 10,000개의 요청을 처리하며 일관된 처리량이 필요합니다. 회사는 프로비저닝된 처리량을 구매하기 위해 CreateProvisionedModelThroughput API를 사용합니다. Amazon CloudWatch 지표에 따르면 온디맨드 요청이 스로틀링(제한)되는 동안 프로비저닝된 용량은 사용되지 않는 것으로 나타납니다. 회사는 애플리케이션에서 다음 코드를 발견합니다: \r\n python response = bedrock_runtime.invoke_model(modelId=\"anthropic.claude-v2\", body=json.dumps(payload)) <br> 회사는 애플리케이션이 프로비저닝된 처리량을 사용하고 스로틀링 문제를 해결하도록 해야 합니다. 이러한 요구 사항을 충족하는 솔루션은 무엇입니까?",
+			"question": "한 금융 서비스 회사가 Amazon Bedrock을 사용하여 재무 문서를 처리하는 AI 애플리케이션을 사용하고 있습니다. 영업 시간 동안 애플리케이션은 시간당 약 10,000개의 요청을 처리하며 일관된 처리량이 필요합니다. 회사는 프로비저닝된 처리량을 구매하기 위해 CreateProvisionedModelThroughput API를 사용합니다. Amazon CloudWatch 지표에 따르면 온디맨드 요청이 스로틀링(제한)되는 동안 프로비저닝된 용량은 사용되지 않는 것으로 나타납니다. 회사는 애플리케이션에서 다음 코드를 발견합니다: \r\n python response = bedrock_runtime.invoke_model(modelId=\"anthropic.claude-v2\", body=json.dumps(payload))\r\n 회사는 애플리케이션이 프로비저닝된 처리량을 사용하고 스로틀링 문제를 해결하도록 해야 합니다. 이러한 요구 사항을 충족하는 솔루션은 무엇입니까?",
 			"options": [
 				{ "id": "A", "text": "프로비저닝된 처리량 구성에서 모델 유닛(MU) 수를 늘립니다." },
 				{ "id": "B", "text": "modelId 파라미터를 CreateProvisionedModelThroughput API가 반환하는 프로비저닝된 모델의 ARN으로 바꿉니다." },
